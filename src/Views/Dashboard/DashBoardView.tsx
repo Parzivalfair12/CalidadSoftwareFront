@@ -1,11 +1,11 @@
-import SlideBar from "../../Components/SlideBar";
+import CardsDashBoard from "../../Components/DashBoard/CardsDashBoard";
+import GraphicDashBoard from "../../Components/DashBoard/GraphicDashBoard";
 
 export const DashBoardView = () => {
   return (
     <>
-      <body>
-        <SlideBar />
-      </body>
+      <CardsDashBoard />
+      <GraphicDashBoard />
     </>
   );
 };

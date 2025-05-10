@@ -1,9 +1,19 @@
-import { DashBoardView } from "../Views/Dashboard/DashBoardView";
+import { Outlet } from "react-router-dom";
+
+import SlideBar from "../Components/SlideBar";
+import { Header } from "../Components/Header";
 
 export const AppLayout = () => {
   return (
     <>
-      <DashBoardView />
+      <div className="container">
+        <SlideBar />
+
+        <main className="main-content">
+          <Header />
+          <Outlet />
+        </main>
+      </div>
     </>
   );
 };
