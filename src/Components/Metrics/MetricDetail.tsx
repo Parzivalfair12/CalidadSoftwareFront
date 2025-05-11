@@ -1,0 +1,63 @@
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getMetricById } from "../../Api/MetricsApi";
+import type { Metric } from "../../Types/Index";
+import LoadingMessage from "../LoadingMessage";
+import ErrorMessage from "../ErrorMessage";
+import { Modal } from "../Modal";
+
+export const MetricDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const [metric, setMetric] = useState<Metric | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchMetric = async () => {
+      try {
+        if (id) {
+          const data = await getMetricById(id);
+          setMetric(data);
+        }
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : "Error al cargar la métrica"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMetric();
+  }, [id]);
+
+  if (loading) return <LoadingMessage />;
+  if (error) return <ErrorMessage message={error} />;
+  if (!metric) return <div>No se encontró la métrica</div>;
+
+  return (
+    <Modal>
+      <div className="metric-details">
+        <h2>Detalles de la Métrica</h2>
+        <div className="detail-row">
+          <span className="detail-label">Característica:</span>
+          <span>{metric.caracteristica}</span>
+        </div>
+        <div className="detail-row">
+          <span className="detail-label">Subcaracterística:</span>
+          <span>{metric.subcaracteristica}</span>
+        </div>
+        <div className="detail-row">
+          <span className="detail-label">Métrica:</span>
+          <span>{metric.metrica}</span>
+        </div>
+        {metric.descripcion && (
+          <div className="detail-row">
+            <span className="detail-label">Descripción:</span>
+            <span>{metric.descripcion}</span>
+          </div>
+        )}
+      </div>
+    </Modal>
+  );
+};

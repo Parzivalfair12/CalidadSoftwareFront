@@ -28,8 +28,26 @@ export default function SlideBar() {
         <li className="nav-item">
           <Link to="/metrics" className="nav-link">
             <FontAwesomeIcon icon={faCube} />
-            <span>Modelo de Calidad</span>
+            <span>Metricas de calidad</span>
           </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/projects" className="nav-link">
+            <FontAwesomeIcon icon={faProjectDiagram} />
+            <span>Proyectos</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link">
+            <FontAwesomeIcon icon={faChartBar} />
+            <span>Reportes</span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a href="#" className="nav-link">
+            <FontAwesomeIcon icon={faShieldAlt} />
+            <span>Seguridad y Roles</span>
+          </a>
         </li>
         <li className="nav-item">
           <a href="#" className="nav-link">
@@ -45,20 +63,8 @@ export default function SlideBar() {
         </li>
         <li className="nav-item">
           <a href="#" className="nav-link">
-            <FontAwesomeIcon icon={faChartBar} />
-            <span>Reportes</span>
-          </a>
-        </li>
-        <li className="nav-item">
-          <a href="#" className="nav-link">
             <FontAwesomeIcon icon={faPlug} />
             <span>Integración y APIs</span>
-          </a>
-        </li>
-        <li className="nav-item">
-          <a href="#" className="nav-link">
-            <FontAwesomeIcon icon={faShieldAlt} />
-            <span>Seguridad y Roles</span>
           </a>
         </li>
         <li className="nav-item">
@@ -66,12 +72,6 @@ export default function SlideBar() {
             <FontAwesomeIcon icon={faSlidersH} />
             <span>Administración</span>
           </a>
-        </li>
-        <li className="nav-item">
-          <Link to="/projects" className="nav-link">
-            <FontAwesomeIcon icon={faProjectDiagram} />
-            <span>Proyectos</span>
-          </Link>
         </li>
       </ul>
     </aside>
