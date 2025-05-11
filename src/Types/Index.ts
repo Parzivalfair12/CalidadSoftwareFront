@@ -6,14 +6,14 @@ export const metricSchema = z.object({
   subcaracteristica: z.string().min(1, "La subcaracterística es obligatoria"),
   metrica: z.string().min(1, "La métrica es obligatoria"),
   descripcion: z.string().optional(),
-  fechaCreacion: z.string().datetime() 
+  fechaCreacion: z.string().datetime(),
 });
 
 export const metricFormSchema = metricSchema.pick({
   caracteristica: true,
   subcaracteristica: true,
   metrica: true,
-  descripcion: true
+  descripcion: true,
 });
 
 export const dashboardMetricSchema = z.array(
@@ -21,9 +21,26 @@ export const dashboardMetricSchema = z.array(
     _id: true,
     caracteristica: true,
     subcaracteristica: true,
-    metrica: true
+    metrica: true,
   })
 );
+
+export interface Project {
+  _id: string;
+  name: string;
+  description: string;
+  status: "Aprobado" | "Revisión" | "No Aprobado";
+  endDate: string;
+  startDate: string;
+}
+
+export interface ProjectFormData {
+  name: string;
+  description: string;
+  status: "Aprobado" | "Revisión" | "No Aprobado";
+  endDate: string;
+  startDate: string;
+}
 
 export type Metric = z.infer<typeof metricSchema>;
 export type MetricFormData = z.infer<typeof metricFormSchema>;

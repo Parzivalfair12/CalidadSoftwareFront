@@ -10,6 +10,7 @@ import { EditMetricForm } from "./Components/Metrics/EditMetricForm.tsx";
 import LoginLayout from "./Layout/LoginLayout.tsx";
 import { AppLayout } from "./Layout/AppLayout.tsx";
 import LoginView from "./Views/Login/LoginView.tsx";
+import ProjectForm from "./Components/Projects/ProjectForm.tsx";
 
 export default function Router() {
   return (
@@ -36,6 +37,9 @@ export default function Router() {
             <Route path="metrics/:id" element={<MetricDetail />} />
             <Route path="metrics/edit/:id" element={<EditMetricForm />} />
             <Route path="projects" element={<ProjectsViews />} />
+            <Route path="/projects/new" element={<ProjectForm />} />
+            <Route path="/projects/edit/:id" element={<ProjectForm />} />
+            {/* <Route path="/projects/:id" element={<ProjectDetails />} /> */}
           </Route>
         </Routes>
       </AuthProvider>
