@@ -9,6 +9,7 @@ import {
   faShieldAlt,
   faSlidersH,
   faProjectDiagram,
+  faEarth
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
@@ -38,10 +39,16 @@ export default function SlideBar() {
           </Link>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+          <Link to="/evaluation" className="nav-link">
+            <FontAwesomeIcon icon={faEarth} />
+            <span>Dashboard evaluación</span>
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/evaluation/chart" className="nav-link">
             <FontAwesomeIcon icon={faChartBar} />
             <span>Reportes</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
           <a href="#" className="nav-link">

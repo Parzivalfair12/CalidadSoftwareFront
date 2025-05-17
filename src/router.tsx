@@ -11,6 +11,9 @@ import LoginLayout from "./Layout/LoginLayout.tsx";
 import { AppLayout } from "./Layout/AppLayout.tsx";
 import LoginView from "./Views/Login/LoginView.tsx";
 import ProjectForm from "./Components/Projects/ProjectForm.tsx";
+import EvaluationView from "./Views/Evaluation/EvaluationView.tsx";
+import EvaluationsList from "./Components/Evaluation/EvaluationsList.tsx";
+import EvaluationChartView from "./Views/Evaluation/EvaluationChartView.tsx";
 
 export default function Router() {
   return (
@@ -32,14 +35,19 @@ export default function Router() {
             }
           >
             <Route path="dashboard" element={<DashBoardView />} />
+
             <Route path="metrics" element={<QuialityMetricsView />} />
             <Route path="metrics/new" element={<CreateMetricForm />} />
             <Route path="metrics/:id" element={<MetricDetail />} />
             <Route path="metrics/edit/:id" element={<EditMetricForm />} />
+
             <Route path="projects" element={<ProjectsViews />} />
             <Route path="/projects/new" element={<ProjectForm />} />
             <Route path="/projects/edit/:id" element={<ProjectForm />} />
-            {/* <Route path="/projects/:id" element={<ProjectDetails />} /> */}
+
+            <Route path="/evaluation" element={<EvaluationsList />} />
+            <Route path="/evaluation/create" element={<EvaluationView />} />
+            <Route path="/evaluation/chart" element={<EvaluationChartView />} />
           </Route>
         </Routes>
       </AuthProvider>
